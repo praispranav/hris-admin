@@ -36,7 +36,7 @@ function Protected(props){
 function App(props) {
   return(
     <Switch>
-      <Route exact path="/add" component={AddProductPage} />
+      <Protected exact path="/add" component={AddProductPage} />
       <Route exact path="/" component={AccessToken} />
     </Switch>
   )
