@@ -106,11 +106,12 @@ export default function AddProduct() {
         data: data,
         url: "https://hris-app-backend.azurewebsites.net/admin/products",
       });
+      await axios.get('https://hris-app-backend.azurewebsites.net/category/update')
       if (response.data) {
         alert("Saved Sucess");
       }
     } catch (error) {
-      alert("Error WHile Saving");
+      alert("Error WHile Saving",error.toString());
     }
   };
   return (
