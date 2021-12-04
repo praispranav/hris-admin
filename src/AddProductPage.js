@@ -75,6 +75,25 @@ export default function AddProduct() {
   const [availableQty, setAvailableQty] = React.useState([]);
   const [initialQTY, setInitialQTY] = React.useState([]);
 
+  const [image, setImage] = React.useState({});
+
+  const convertToBase64 = () => {
+    return new Promise((resolve, rejects) => {});
+  };
+  function getBase64(file) {
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function () {
+      console.log(reader.result);
+    };
+    reader.onerror = function (error) {
+      console.log('Error: ', error);
+    };
+ }
+  const handleChangeImageUpload = (e) => {
+    setImage(e.target.files[0])
+  };
+
   const handleOTYChange = (value) => {
     console.log(value);
     setAvailableQty(value);
@@ -98,6 +117,7 @@ export default function AddProduct() {
     data.availableQuantity = availableQty;
     data.initialQuantity = initialQTY;
     data.token = localStorage.getItem("token");
+    data.image = getBase64(image)
     console.log(data);
 
     try {
@@ -106,24 +126,32 @@ export default function AddProduct() {
         data: data,
         url: "https://hris-app-backend.azurewebsites.net/admin/products",
       });
-      await axios.get('https://hris-app-backend.azurewebsites.net/category/update')
+      await axios.get(
+        "https://hris-app-backend.azurewebsites.net/category/update"
+      );
       if (response.data) {
         alert("Saved Sucess");
       }
     } catch (error) {
-      alert("Error WHile Saving",error.toString());
+      alert("Error WHile Saving", error.toString());
     }
   };
+  document.title = "Add Product"
   return (
     <>
-      <div className="container d-flex justify-content-center">
-        {/* <div>
-        <label classNameName="form-label" for="customFile">
-          Image
-        </label>
-        <input type="file" classNameName="form-control" id="customFile" />
-      </div> */}
-        <form className="w-50">
+      <div className="container  d-flex justify-content-center">
+        <form className=" col-4 w-50">
+          <div class="input-group mb-3">
+            <input
+              type="file"
+              class="form-control"
+              onChange={handleChangeImageUpload}
+              id="inputGroupFile02"
+            />
+            {/* <label class="input-group-text" for="inputGroupFile02">
+              Upload
+            </label> */}
+          </div>
           <div classNameName="mb-3">
             <label for="exampleInputEmail1" classNameName="form-label">
               Name
@@ -275,31 +303,6 @@ export default function AddProduct() {
           </button>
         </form>
       </div>
-      <div className="my-5" />
-      <div className="my-5" />
-      <div className="my-5" />
-      <div className="my-5" />
-      <div className="my-5" />
-      <div className="my-5" />
-      <div className="my-5" />
-      <div className="my-5" />
-      <div className="my-5" />
-      <div className="my-5" />
-      <div className="my-5" />
-      <div className="my-5" />
-      <div className=" my-5 py-5" />
-      <div className=" my-5 py-5" />
-      <div className=" my-5 py-5" />
-      <div className=" my-5 py-5" />
-      <div className=" my-5 py-5" />
-      <div className=" my-5 py-5" />
-      <div className=" my-5 py-5" />
-      <div className="my-5" />
-      <div className="my-5" />
-      <div className="my-5" />
-      <div className="my-5" />
-      <div className="my-5" />
-      <div className="my-5" />
     </>
   );
 }
