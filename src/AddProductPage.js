@@ -77,18 +77,19 @@ export default function AddProduct() {
 
   const [image, setImage] = React.useState({});
 
-  const convertToBase64 = () => {
-    return new Promise((resolve, rejects) => {});
-  };
   function getBase64(file) {
-    var reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = function () {
-      console.log(reader.result);
-    };
-    reader.onerror = function (error) {
-      console.log('Error: ', error);
-    };
+    return new Promise((resolve, rejects)=>{
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function () {
+        console.log(reader.result);
+        resolve(reader.result)
+      };
+      reader.onerror = function (error) {
+        console.log('Error: ', error);
+      };
+
+    })
  }
   const handleChangeImageUpload = (e) => {
     setImage(e.target.files[0])
