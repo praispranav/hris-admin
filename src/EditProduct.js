@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import DropDown from "react-select";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -142,11 +142,11 @@ export default function AddProduct() {
       alert("Error WHile Saving", error.toString());
     }
   };
-  document.title = "Add Product";
+  document.title = "Edit Product";
 
-  const updateChanges = async () =>{
-    await axios.get('/category/update')
-  }
+  useEffect(()=>{
+
+  },[])
   return (
     <>
       <div className="container  d-flex justify-content-center">
@@ -154,9 +154,9 @@ export default function AddProduct() {
           <Link to="/table">
             <button className="btn btn-success btn-sm mx-2">Table</button>
           </Link>
-          {/* <Link to="/table"> */}
-            <button onClick={updateChanges} className="btn btn-warning btn-sm mx-2">Update Changes</button>
-          {/* </Link> */}
+          {/* <Link to="/table">
+            <button className="btn btn-success btn-sm mx-2">Table</button>
+          </Link> */}
         </div>
         <div className=" col-4 w-50">
           <div class="input-group mb-3">

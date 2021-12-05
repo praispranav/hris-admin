@@ -1,15 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState, useMemo } from "react";
 
-import TableContainer from "./TableContainer"
+import TableContainer from "./TableContainer";
+import { NormalCell, Quantity, Status,Delete } from "./TableCells"
 
 export default function Table() {
   const [state, setState] = useState([]);
 
   const fetchProducts = async () => {
     try {
-      const { data } = await axios.get("https://hris-app-backend.azurewebsites.net/admin/products");
-      console.log(data)
+      const { data } = await axios.get("/admin/products");
+      console.log(data);
       setState(data.data);
     } catch (error) {
       console.log(error);
@@ -25,53 +26,65 @@ export default function Table() {
       {
         Header: "Price",
         accessor: "price",
+        Cell: (cellProps)=> <NormalCell {...cellProps} />
       },
       {
         Header: "Price Unit",
         accessor: "priceUnit",
+        Cell: (cellProps)=> <NormalCell {...cellProps} />
       },
       {
-        Header: "Subscription",
+        Header: "Sub...",
         accessor: "subscription",
+        Cell: (cellProps)=> <NormalCell {...cellProps} />
       },
       {
         Header: "Category",
         accessor: "category",
+        Cell: (cellProps)=> <NormalCell {...cellProps} />
       },
       {
-        Header: "City",
-        accessor: "location.city",
+        Header: "Quantity",
+        accessor: "availableQuantity",
+        Cell: (cellProps) => <Quantity {...cellProps} />,
       },
       {
         Header: "Status",
         accessor: "status",
+        Cell: (cellProps) => <Status {...cellProps} />,
       },
       {
         Header: "Description",
         accessor: "description",
         Cell: (cellProps) => {
-          return <div {...cellProps} style={{ width: '200px', textOverflow: "ellipsis" }}>
-            {cellProps.value}
-          </div>
-        }
+          return (
+            <div
+              {...cellProps}
+              style={{ width: "200px", textOverflow: "ellipsis" }}
+            >
+              {cellProps.value}
+            </div>
+          );
+        },
       },
       {
         Header: "Edit",
         accessor: "",
         Cell: (cellProps) => {
-          return <div {...cellProps} style={{ width: '50px', textOverflow: "ellipsis" }}>
-               <button className="btn btn-success btn-sm">Edit</button>
-          </div>
-        }
+          return (
+            <div
+              {...cellProps}
+              style={{ width: "30px", textOverflow: "ellipsis" }}
+            >
+              <button className="btn btn-success btn-sm">Edit</button>
+            </div>
+          );
+        },
       },
       {
-        Header: "Delete",
+        Header: "Del.",
         accessor: "",
-        Cell: (cellProps) => {
-          return <div {...cellProps} style={{ width: '50px', textOverflow: "ellipsis" }}>
-            <button className="btn btn-danger btn-sm">Delete</button>
-          </div>
-        }
+        Cell: (cellProps) => <Delete {...cellProps} fetchProducts={fetchProducts} />
       },
     ],
     []
