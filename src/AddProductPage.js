@@ -129,7 +129,7 @@ export default function AddProduct() {
       const response = await axios({
         method: "post",
         data: data,
-        url: "http://localhost:3000/admin/products",
+        url: "https://hris-app-backend.azurewebsites.net/admin/products",
       });
       await axios.get(
         "https://hris-app-backend.azurewebsites.net/category/update"
