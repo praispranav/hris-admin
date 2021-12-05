@@ -12,6 +12,8 @@ const INITIAL_PRODUCT_STATE = {
   subscription: "",
   category: "",
   status: "",
+  image: "",
+  token: "",
 };
 
 const PRICE_UNITS = ["kg", "liters", "gram", "piece"];
@@ -78,21 +80,20 @@ export default function AddProduct() {
   const [image, setImage] = React.useState({});
 
   function getBase64(file) {
-    return new Promise((resolve, rejects)=>{
+    return new Promise((resolve, rejects) => {
       var reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = function () {
         console.log(reader.result);
-        resolve(reader.result)
+        resolve(reader.result);
       };
       reader.onerror = function (error) {
-        console.log('Error: ', error);
+        console.log("Error: ", error);
       };
-
-    })
- }
+    });
+  }
   const handleChangeImageUpload = (e) => {
-    setImage(e.target.files[0])
+    setImage(e.target.files[0]);
   };
 
   const handleOTYChange = (value) => {
@@ -113,31 +114,43 @@ export default function AddProduct() {
   };
 
   const finalSubmit = async (e) => {
+    var reader = new FileReader();
+    reader.readAsDataURL(image);
+
     e.preventDefault();
-    const data = { ...state };
-    data.availableQuantity = availableQty;
-    data.initialQuantity = initialQTY;
-    data.token = localStorage.getItem("token");
-    data.image = getBase64(image)
-    console.log(data);
 
     try {
-      const response = await axios({
-        method: "post",
-        data: data,
-        url: "https://hris-app-backend.azurewebsites.net/admin/products",
-      });
-      await axios.get(
-        "https://hris-app-backend.azurewebsites.net/category/update"
-      );
-      if (response.data) {
-        alert("Saved Sucess");
-      }
+      reader.onload = async function () {
+        console.log(reader.result);
+        const data = { ...state };
+        data.availableQuantity = availableQty;
+        data.initialQuantity = initialQTY;
+        data.token = localStorage.getItem("token");
+        data.image = reader.result;
+        console.log(data);
+        const response = await axios({
+          method: "post",
+          data: data,
+          url: "https://hris-app-backend.azurewebsites.net/admin/products",
+        });
+        await axios.get(
+          "https://hris-app-backend.azurewebsites.net/category/update"
+        );
+        if (response.data) {
+          alert("Saved Sucess");
+        }
+      };
+      // const response = await axios({
+      //   method: "post",
+      //   data: data,
+      //   url: "https://hris-app-backend.azurewebsites.net/admin/products",
+      // });
+      
     } catch (error) {
       alert("Error WHile Saving", error.toString());
     }
   };
-  document.title = "Add Product"
+  document.title = "Add Product";
   return (
     <>
       <div className="container  d-flex justify-content-center">
