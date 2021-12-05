@@ -145,7 +145,8 @@ export default function AddProduct() {
   document.title = "Add Product";
 
   const updateChanges = async () =>{
-    await axios.get('/category/update')
+    const res = await axios.get('/category/update')
+    if(res) alert("Changes Applied to App")
   }
   return (
     <>
