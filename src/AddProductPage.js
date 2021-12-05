@@ -131,11 +131,11 @@ export default function AddProduct() {
         const response = await axios({
           method: "post",
           data: data,
-          url: "http://localhost:3000/admin/products",
-          // url: "https://hris-app-backend.azurewebsites.net/admin/products",
+          // url: "http://localhost:3000/admin/products",
+          url: "https://hris-app-backend.azurewebsites.net/admin/products",
         });
         await axios.get(
-          "http://localhost:3000/admin/category/update"
+          "https://hris-app-backend.azurewebsites.net/admin/category/update"
         );
         if (response.data) {
           alert("Saved Sucess");
