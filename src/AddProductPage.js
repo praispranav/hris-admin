@@ -1,6 +1,7 @@
 import React from "react";
 import DropDown from "react-select";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const INITIAL_PRODUCT_STATE = {
   name: "",
@@ -12,8 +13,8 @@ const INITIAL_PRODUCT_STATE = {
   subscription: "",
   category: "",
   status: "",
-  image:"",
-  token:"",
+  image: "",
+  token: "",
 };
 
 const PRICE_UNITS = ["kg", "liters", "gram", "piece"];
@@ -80,23 +81,22 @@ export default function AddProduct() {
   const [image, setImage] = React.useState({});
 
   function getBase64(file) {
-    return new Promise((resolve, rejects)=>{
+    return new Promise((resolve, rejects) => {
       let image;
-        var reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = function () {
-          console.log(reader.result);
-          image  = reader.result
-          resolve(image)
-        };
-        reader.onerror = function (error) {
-          console.log('Error: ', error);
-        };
-      
-      })
- }
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function () {
+        console.log(reader.result);
+        image = reader.result;
+        resolve(image);
+      };
+      reader.onerror = function (error) {
+        console.log("Error: ", error);
+      };
+    });
+  }
   const handleChangeImageUpload = (e) => {
-    setImage(e.target.files[0])
+    setImage(e.target.files[0]);
   };
 
   const handleOTYChange = (value) => {
@@ -117,12 +117,12 @@ export default function AddProduct() {
   };
 
   const finalSubmit = async (e) => {
-    const a= await getBase64(image)
+    const a = await getBase64(image);
     const data = { ...state };
     data.availableQuantity = availableQty;
     data.initialQuantity = initialQTY;
     data.token = localStorage.getItem("token");
-    data.image = a.toString()
+    data.image = a.toString();
     console.log(data);
 
     try {
@@ -138,14 +138,22 @@ export default function AddProduct() {
         alert("Saved Sucess");
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
       alert("Error WHile Saving", error.toString());
     }
   };
-  document.title = "Add Product"
+  document.title = "Add Product";
   return (
     <>
       <div className="container  d-flex justify-content-center">
+        <div className="col-4">
+          <Link to="/table">
+            <button className="btn btn-success btn-sm mx-2">Table</button>
+          </Link>
+          {/* <Link to="/table">
+            <button className="btn btn-success btn-sm mx-2">Table</button>
+          </Link> */}
+        </div>
         <div className=" col-4 w-50">
           <div class="input-group mb-3">
             <input

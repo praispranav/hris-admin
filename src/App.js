@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect, Link } from "react-router-dom";
 import AddProductPage from "./AddProductPage";
+import Table from "./Table"
 
 function AccessToken() {
   const [password, setPassword] = React.useState("");
@@ -45,6 +46,7 @@ function App(props) {
   return (
     <Switch>
       <Protected exact path="/add/" component={AddProductPage} />
+      <Protected exact path="/table/" component={Table} />
       <Route exact path="/" component={AccessToken} />
     </Switch>
   );
