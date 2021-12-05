@@ -12,8 +12,8 @@ const INITIAL_PRODUCT_STATE = {
   subscription: "",
   category: "",
   status: "",
-  image: "",
-  token: "",
+  image:"",
+  token:"",
 };
 
 const PRICE_UNITS = ["kg", "liters", "gram", "piece"];
@@ -80,20 +80,23 @@ export default function AddProduct() {
   const [image, setImage] = React.useState({});
 
   function getBase64(file) {
-    return new Promise((resolve, rejects) => {
-      var reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = function () {
-        console.log(reader.result);
-        resolve(reader.result);
-      };
-      reader.onerror = function (error) {
-        console.log("Error: ", error);
-      };
-    });
-  }
+    return new Promise((resolve, rejects)=>{
+      let image;
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+          console.log(reader.result);
+          image  = reader.result
+          resolve(image)
+        };
+        reader.onerror = function (error) {
+          console.log('Error: ', error);
+        };
+      
+      })
+ }
   const handleChangeImageUpload = (e) => {
-    setImage(e.target.files[0]);
+    setImage(e.target.files[0])
   };
 
   const handleOTYChange = (value) => {
@@ -114,48 +117,36 @@ export default function AddProduct() {
   };
 
   const finalSubmit = async (e) => {
-    var reader = new FileReader();
-    reader.readAsDataURL(image);
-
-    e.preventDefault();
+    const a= await getBase64(image)
+    const data = { ...state };
+    data.availableQuantity = availableQty;
+    data.initialQuantity = initialQTY;
+    data.token = localStorage.getItem("token");
+    data.image = a.toString()
+    console.log(data);
 
     try {
-      reader.onload = async function () {
-        console.log(reader.result);
-        const data = { ...state };
-        data.availableQuantity = availableQty;
-        data.initialQuantity = initialQTY;
-        data.token = localStorage.getItem("token");
-        data.image = reader.result;
-        console.log(data);
-        const response = await axios({
-          method: "post",
-          data: data,
-          // url: "http://localhost:3000/admin/products",
-          url: "https://hris-app-backend.azurewebsites.net/admin/products",
-        });
-        await axios.get(
-          "https://hris-app-backend.azurewebsites.net/admin/category/update"
-        );
-        if (response.data) {
-          alert("Saved Sucess");
-        }
-      };
-      // const response = await axios({
-      //   method: "post",
-      //   data: data,
-      //   url: "https://hris-app-backend.azurewebsites.net/admin/products",
-      // });
-      
+      const response = await axios({
+        method: "post",
+        data: data,
+        url: "http://localhost:3000/admin/products",
+      });
+      await axios.get(
+        "https://hris-app-backend.azurewebsites.net/category/update"
+      );
+      if (response.data) {
+        alert("Saved Sucess");
+      }
     } catch (error) {
+      console.log(error)
       alert("Error WHile Saving", error.toString());
     }
   };
-  document.title = "Add Product";
+  document.title = "Add Product"
   return (
     <>
       <div className="container  d-flex justify-content-center">
-        <form className=" col-4 w-50">
+        <div className=" col-4 w-50">
           <div class="input-group mb-3">
             <input
               type="file"
@@ -316,7 +307,7 @@ export default function AddProduct() {
           <button onClick={finalSubmit} className="btn btn-success">
             Submit
           </button>
-        </form>
+        </div>
       </div>
     </>
   );
