@@ -1,0 +1,189 @@
+[{
+  "_id": {
+    "$oid": "61ac41a1138b1e6787535e9f"
+  },
+  "name": "Sudh desi Ladoo",
+  "availableQuantity": [
+    {
+      "value": "1",
+      "label": "1"
+    }
+  ],
+  "initialQuantity": [
+    {
+      "value": "1",
+      "label": "1"
+    }
+  ],
+  "price": "500",
+  "priceUnit": "kg",
+  "subscription": "0",
+  "category": "dairy",
+  "status": "Out of stock",
+  "description": "Suji is the main ingredient for the preparation of this ladoo. Sudh desi ghee is used for preparation and stuffing with good healthy nuts.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac41fd138b1e6787535ea3"
+  },
+  "name": "Full cream milk",
+  "availableQuantity": [
+    {
+      "value": "1",
+      "label": "1"
+    }
+  ],
+  "initialQuantity": [
+    {
+      "value": "1",
+      "label": "1"
+    }
+  ],
+  "price": "50",
+  "priceUnit": "liters",
+  "subscription": "1",
+  "category": "dairy",
+  "status": "Out of stock",
+  "description": "Milk is a good source for healthy nutrients and the major raw material for many delicious foods and sweets.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac4258138b1e6787535ea7"
+  },
+  "name": "Flower",
+  "availableQuantity": [
+    {
+      "value": "1",
+      "label": "1"
+    }
+  ],
+  "initialQuantity": [
+    {
+      "value": "1",
+      "label": "1"
+    }
+  ],
+  "price": "10",
+  "priceUnit": "piece",
+  "subscription": "1",
+  "category": "flowers",
+  "status": "Out of stock",
+  "description": "Flower is a good Decoration mterial feel me natural and relax.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac42df138b1e6787535eab"
+  },
+  "name": "Tifin daily food",
+  "availableQuantity": [
+    {
+      "value": "1",
+      "label": "1"
+    }
+  ],
+  "initialQuantity": [
+    {
+      "value": "1",
+      "label": "1"
+    }
+  ],
+  "price": "50",
+  "priceUnit": "piece",
+  "subscription": "1",
+  "category": "tifin",
+  "status": "Out of stock",
+  "description": "Be feel free at home because of this healthy and home like foods with balance nutrients.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac4321138b1e6787535eaf"
+  },
+  "name": "Hindustan",
+  "availableQuantity": [
+    {
+      "value": "1",
+      "label": "1"
+    }
+  ],
+  "initialQuantity": [
+    {
+      "value": "1",
+      "label": "1"
+    }
+  ],
+  "price": "5",
+  "priceUnit": "piece",
+  "subscription": "1",
+  "category": "newspaper",
+  "status": "Out of stock",
+  "description": "Hindustan is a good source to get all over India's news at home.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac437c138b1e6787535eb3"
+  },
+  "name": "Potato",
+  "availableQuantity": [
+    {
+      "value": "1",
+      "label": "1"
+    }
+  ],
+  "initialQuantity": [
+    {
+      "value": "1",
+      "label": "1"
+    }
+  ],
+  "price": "20",
+  "priceUnit": "kg",
+  "subscription": "0",
+  "category": "vegetables",
+  "status": "Out of stock",
+  "description": "Potato is the main vegetables in kitchen and this is used to make a many vegetables.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac43c3138b1e6787535eb7"
+  },
+  "name": "Apple",
+  "availableQuantity": [
+    {
+      "value": "1",
+      "label": "1"
+    }
+  ],
+  "initialQuantity": [
+    {
+      "value": "1",
+      "label": "1"
+    }
+  ],
+  "price": "100",
+  "priceUnit": "kg",
+  "subscription": "0",
+  "category": "fruits",
+  "status": "Out of stock",
+  "description": "Apple is a healthy foods and the best tome to take it is early morning.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61acab1e9927969e800928b6"
+  },
+  "name": "SOme Product name",
+  "availableQuantity": [
+    "4",
+    "5"
+  ],
+  "initialQuantity": [
+    "5"
+  ],
+  "price": "400",
+  "priceUnit": "kg",
+  "subscription": "No",
+  "category": "flowers",
+  "status": "Out Of Stock",
+  "description": "Some Description",
+  "__v": 0
+}
+]
