@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import DropDown from "react-select";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const INITIAL_PRODUCT_STATE = {
   name: "",
@@ -75,6 +76,8 @@ const QTY_OPTIONS = [
 export default function AddProduct() {
   const [state, setState] = React.useState(INITIAL_PRODUCT_STATE);
 
+  const [loading, setLoading] = useState(false)
+
   const [availableQty, setAvailableQty] = React.useState([]);
   const [initialQTY, setInitialQTY] = React.useState([]);
 
@@ -117,6 +120,7 @@ export default function AddProduct() {
   };
 
   const finalSubmit = async (e) => {
+    setLoading(true)
     const a = await getBase64(image);
     const data = { ...state };
     data.availableQuantity = availableQty;
@@ -135,10 +139,12 @@ export default function AddProduct() {
         "/category/update"
       );
       if (response.data) {
+        setLoading(false)
         alert("Saved Sucess");
       }
     } catch (error) {
       console.log(error);
+      setLoading(false)
       alert("Error WHile Saving", error.toString());
     }
   };
@@ -150,6 +156,7 @@ export default function AddProduct() {
   }
   return (
     <>
+    <ClipLoader loading={loading} />
       <div className="container  d-flex justify-content-center">
         <div className="col-4">
           <Link to="/table">
