@@ -4,8 +4,8 @@ import AddProductPage from "./AddProductPage";
 import Table from "./Table"
 import axios from 'axios'
 
-axios.defaults.baseURL = "https://hris-app-backend.azurewebsites.net"
-// axios.defaults.baseURL = "http://localhost:3000/"
+// axios.defaults.baseURL = "https://hris-app-backend.azurewebsites.net"
+axios.defaults.baseURL = "http://localhost:3000/"
 
 function AccessToken() {
   const [password, setPassword] = React.useState("");

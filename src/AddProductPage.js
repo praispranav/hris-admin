@@ -142,6 +142,7 @@ export default function AddProduct() {
         setLoading(false)
         alert("Saved Sucess");
       }
+      setLoading(false)
     } catch (error) {
       console.log(error);
       setLoading(false)
@@ -156,7 +157,15 @@ export default function AddProduct() {
   }
   return (
     <>
+    {
+      loading ? (
+    <div className="w-100 d-flex justify-content-center">
+
     <ClipLoader loading={loading} />
+    </div>
+
+      ) :(
+
       <div className="container  d-flex justify-content-center">
         <div className="col-4">
           <Link to="/table">
@@ -329,6 +338,8 @@ export default function AddProduct() {
           </button>
         </div>
       </div>
+      )
+    }
     </>
   );
 }

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState, useMemo } from "react";
 
 import TableContainer from "./TableContainer";
-import { NormalCell, Quantity, Status,Delete } from "./TableCells"
+import { NormalCell, Quantity, Status,Delete, Discount } from "./TableCells"
 
 export default function Table() {
   const [state, setState] = useState([]);
@@ -37,6 +37,11 @@ export default function Table() {
         Header: "Sub...",
         accessor: "subscription",
         Cell: (cellProps)=> <NormalCell {...cellProps} />
+      },
+      {
+        Header: "Discount",
+        accessor: "discount",
+        Cell: (cellProps)=> <Discount {...cellProps} />
       },
       {
         Header: "Category",
