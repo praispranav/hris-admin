@@ -18,7 +18,7 @@ const INITIAL_PRODUCT_STATE = {
   token: "",
 };
 
-const PRICE_UNITS = ["kg", "liters", "gram", "piece"];
+const PRICE_UNITS = ["kg", "liters", "gram", "piece", "monthly"];
 
 const CATEGORY = [
   {
