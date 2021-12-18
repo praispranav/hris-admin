@@ -7,8 +7,8 @@ import Login from "./Auth/Login";
 import EditProductPage from './EditProduct/EditProduct';
 import Navbar from "./Components/Nav"
 
-// axios.defaults.baseURL = "https://hris-app-backend.azurewebsites.net"
-axios.defaults.baseURL = "http://localhost:3000/"
+axios.defaults.baseURL = "https://hris-app-backend.azurewebsites.net"
+// axios.defaults.baseURL = "http://localhost:3000/"
 
 function AccessToken() {
   const [password, setPassword] = React.useState("");
