@@ -1,11 +1,14 @@
 import React from "react";
 import { Switch, Route, Redirect, Link } from "react-router-dom";
 import AddProductPage from "./AddProductPage";
-import Table from "./Table"
-import axios from 'axios'
+import Table from "./Table";
+import axios from 'axios';
+import Login from "./Auth/Login";
+import EditProductPage from './EditProduct/EditProduct';
+import Navbar from "./Components/Nav"
 
-axios.defaults.baseURL = "https://hris-app-backend.azurewebsites.net"
-// axios.defaults.baseURL = "http://localhost:3000/"
+// axios.defaults.baseURL = "https://hris-app-backend.azurewebsites.net"
+axios.defaults.baseURL = "http://localhost:3000/"
 
 function AccessToken() {
   const [password, setPassword] = React.useState("");
@@ -48,11 +51,15 @@ function Protected(props) {
 
 function App(props) {
   return (
+    <>
+    <Navbar />
     <Switch>
       <Protected exact path="/add/" component={AddProductPage} />
+      <Protected exact path="/edit" component={EditProductPage} />
       <Protected exact path="/table/" component={Table} />
-      <Route exact path="/" component={AccessToken} />
+      <Route exact path="/" component={Login} />
     </Switch>
+    </>
   );
 }
 

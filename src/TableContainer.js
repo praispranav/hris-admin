@@ -2,6 +2,8 @@ import React from "react";
 import { useTable, useSortBy, useFilters } from "react-table";
 import { Table } from "reactstrap";
 import {Filter, DefaultColumnFilter } from "./Filter";
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
 const TableContainer = ({ columns, data }) => {
   //   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
@@ -35,8 +37,8 @@ const TableContainer = ({ columns, data }) => {
                   <span>
                     {column.isSorted
                       ? column.isSortedDesc
-                        ? ' 🔽'
-                        : ' 🔼'
+                        ? <ArrowDropDownIcon fontSize="small" />
+                        : <ArrowDropUpIcon fontSize='small' />
                       : ''}
                   </span>
                 </div>

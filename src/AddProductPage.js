@@ -167,14 +167,7 @@ export default function AddProduct() {
       ) :(
 
       <div className="container  d-flex justify-content-center">
-        <div className="col-4">
-          <Link to="/table">
-            <button className="btn btn-success btn-sm mx-2">Table</button>
-          </Link>
-          {/* <Link to="/table"> */}
-            <button onClick={updateChanges} className="btn btn-warning btn-sm mx-2">Update Changes</button>
-          {/* </Link> */}
-        </div>
+        
         <div className=" col-4 w-50">
           <div class="input-group mb-3">
             <input
@@ -340,6 +333,11 @@ export default function AddProduct() {
       </div>
       )
     }
+    <div className="my-5" />
+    <div className="my-5" />
+    <div className="my-5" />
+    <div className="my-5" />
+    <div className="my-5" />
     </>
   );
 }

@@ -3,6 +3,7 @@ import React, { useEffect, useState, useMemo } from "react";
 
 import TableContainer from "./TableContainer";
 import { NormalCell, Quantity, Status,Delete, Discount } from "./TableCells"
+import { Link } from "react-router-dom"
 
 export default function Table() {
   const [state, setState] = useState([]);
@@ -81,7 +82,10 @@ export default function Table() {
               {...cellProps}
               style={{ width: "30px", textOverflow: "ellipsis" }}
             >
+              <Link to={`/edit?id=${cellProps.row.original._id}`}>
+
               <button className="btn btn-success btn-sm">Edit</button>
+              </Link>
             </div>
           );
         },
