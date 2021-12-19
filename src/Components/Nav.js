@@ -7,6 +7,10 @@ export default function Nav() {
     const res = await axios.get("/category/update");
     alert(res.data.msg);
   };
+
+  const logout = () =>{
+    localStorage.setItem('token', '')
+  } 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -67,6 +71,9 @@ export default function Nav() {
           <a className="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li> */}
           </ul>
+          <div className="mx-2">
+            <button onClick={logout} className="btn-sm btn btn-warning text-dark">Logout</button>
+          </div>
           {/* <form className="d-flex">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
         <button className="btn btn-outline-success" type="submit">Search</button>
