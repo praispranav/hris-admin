@@ -27,7 +27,7 @@ const TableContainer = ({ columns, data }) => {
     // If you're curious what props we get as a result of calling our getter functions (getTableProps(), getRowProps())
     // Feel free to use console.log()  This will help you better understand how react table works underhood.
     <Table {...getTableProps()}>
-      <thead>
+      <thead className="position-sticky bg-white" style={{ top: 0, zIndex: 10}}>
         {headerGroups.map((headerGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (

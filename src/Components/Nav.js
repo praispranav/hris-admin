@@ -3,10 +3,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Nav() {
-    const updateChanges = async () =>{
-        const res = await axios.get('/category/update')
-        alert(res.data.msg)
-    }
+  const updateChanges = async () => {
+    const res = await axios.get("/category/update");
+    alert(res.data.msg);
+  };
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -41,9 +41,16 @@ export default function Nav() {
               </Link>
             </li>
             <li className="nav-item">
-                <a onClick={updateChanges} className="nav-link active" href="#">
-                  Update Changes
+              <Link to="/order/normal">
+                <a className="nav-link active" href="#">
+                  Normal Order
                 </a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <a onClick={updateChanges} className="nav-link active" href="#">
+                Update Changes
+              </a>
             </li>
             {/* <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
