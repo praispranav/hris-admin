@@ -386,7 +386,7 @@ export default function NormalOrderPage() {
         Header: "Price",
         accessor: "price",
         Cell:(cellprops)=>(
-            <Typography variant="body">₹{cellprops.row.original.status}</Typography>
+            <Typography variant="body">₹{cellprops.row.original.price}</Typography>
         )
       },
       {
