@@ -52,6 +52,13 @@ export default function Nav() {
               </Link>
             </li>
             <li className="nav-item">
+              <Link to="/order/subscription">
+                <a className="nav-link active" href="#">
+                  Subscription Order
+                </a>
+              </Link>
+            </li>
+            <li className="nav-item">
               <a onClick={updateChanges} className="nav-link active" href="#">
                 Update Changes
               </a>
