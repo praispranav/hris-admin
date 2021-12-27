@@ -7,9 +7,10 @@ import Login from "./Auth/Login";
 import EditProductPage from './EditProduct/EditProduct';
 import Navbar from "./Components/Nav"
 import NormalOrder from "./Order/NormalOrder"
+import Subscription from "./Order/Subscriptions"
 
-axios.defaults.baseURL = "https://hris-app-backend.azurewebsites.net"
-// axios.defaults.baseURL = "http://localhost:3000/"
+// axios.defaults.baseURL = "https://hris-app-backend.azurewebsites.net"
+axios.defaults.baseURL = "http://localhost:3000/"
 
 
 function Protected(props) {
@@ -26,6 +27,7 @@ function App(props) {
       <Protected exact path="/edit" component={EditProductPage} />
       <Protected exact path="/table/" component={Table} />
       <Protected exact path="/order/normal" component={NormalOrder} />
+      <Protected exact path="/order/subscription" component={Subscription} />
       <Route exact path="/" component={Login} />
     </Switch>
     </>

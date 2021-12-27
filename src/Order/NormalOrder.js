@@ -690,7 +690,7 @@ export default function NormalOrderPage() {
             <div className="col-12 col-sm-4">
               <div className="card">
                 <div className="card-header">
-                  <h5 className="card-title">Confirmed Order</h5>
+                  <h5 className="card-title">Statistics</h5>
                 </div>
                 <div className="card-body">
                   <div className="row">
