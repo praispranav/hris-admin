@@ -46,6 +46,10 @@ const CATEGORY = [
     name: "Dairy",
     value: "dairy",
   },
+{
+  name: "Stationary",
+  value: "stationary",
+},
 ];
 
 const QTY_OPTIONS = [

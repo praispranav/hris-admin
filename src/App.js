@@ -9,7 +9,7 @@ import Navbar from "./Components/Nav"
 import NormalOrder from "./Order/NormalOrder"
 import Subscription from "./Order/Subscriptions"
 
-axios.defaults.baseURL = "https://hris-app-backend.azurewebsites.net"
+axios.defaults.baseURL = "https://hris-backend-api.azurewebsites.net/"
 // axios.defaults.baseURL = "http://localhost:3000/"
 
 
