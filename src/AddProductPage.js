@@ -18,7 +18,7 @@ const INITIAL_PRODUCT_STATE = {
   token: "",
 };
 
-const PRICE_UNITS = ["kg", "liters", "gram", "piece"];
+const PRICE_UNITS = ["kg", "liters", "gram", "piece", "monthly"];
 
 const CATEGORY = [
   {
@@ -48,6 +48,10 @@ const CATEGORY = [
   {
     name: "Stationary",
     value: "stationary",
+  },
+  {
+    name: "Grocery",
+    value: "grocery",
   },
 ];
 
