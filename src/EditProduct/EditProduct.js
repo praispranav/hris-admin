@@ -19,7 +19,7 @@ const INITIAL_PRODUCT_STATE = {
   token: "",
 };
 
-const PRICE_UNITS = ["kg", "liters", "gram", "piece","monthly"];
+const PRICE_UNITS = ["kg", "liters", "gram", "piece","monthly", "yearly"];
 
 const CATEGORY = [
   {
@@ -80,6 +80,9 @@ const QTY_OPTIONS = [
   { value: "21", label: "21" },
   { value: "22", label: "22" },
   { value: "23", label: "23" },
+  { value: "24", label: "24" },
+  { value: "25", label: "25" },
+  { value: "50", label: "50" },
 ];
 
 export default function AddProduct() {

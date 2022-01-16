@@ -285,19 +285,7 @@ export default function NormalOrderPage() {
   const [statistics, setStatistics] = useState(new InitialStatistics());
 
   const filterTodayOrder = (data, date = new Date()) => {
-    const order = data.filter((item) => {
-      const filter =
-        moment(item.createdDate).format("DD-MM-YYYY") ==
-        moment(new Date(11 - 12 - 2021)).format("DD-MM-YYYY");
-
-      console.log(
-        "Dates",
-        moment(item.createdDate).format("DD-MM-YYYY"),
-        moment(date).format("DD-MM-YYYY")
-      );
-      console.log("Filter", filter);
-      return filter;
-    });
+    const order = data.filter((item) => item.status.toLowerCase() === "processing" );
     console.log("Order", order);
     return order;
   };
