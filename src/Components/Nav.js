@@ -59,6 +59,13 @@ export default function Nav() {
               </Link>
             </li>
             <li className="nav-item">
+              <Link to="/slider-image">
+                <a className="nav-link active" href="#">
+                  Slider Images
+                </a>
+              </Link>
+            </li>
+            <li className="nav-item">
               <a onClick={updateChanges} className="nav-link active" href="#">
                 Update Changes
               </a>

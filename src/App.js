@@ -9,9 +9,10 @@ import Navbar from "./Components/Nav"
 import NormalOrder from "./Order/NormalOrder"
 import Subscription from "./Order/Subscriptions"
 import PrivacyPolicy from "./Privacy"
+import SliderImage from './SliderImage'
 
-axios.defaults.baseURL = "https://hris-backend-api.azurewebsites.net/"
-// axios.defaults.baseURL = "http://localhost:3000/"
+// axios.defaults.baseURL = "https://hris-backend-api.azurewebsites.net/"
+axios.defaults.baseURL = "http://localhost:3000/"
 
 
 function Protected(props) {
@@ -29,6 +30,7 @@ function App(props) {
       <Protected exact path="/table/" component={Table} />
       <Protected exact path="/order/normal" component={NormalOrder} />
       <Protected exact path="/order/subscription" component={Subscription} />
+      <Protected exact path="/slider-image" component={SliderImage} />
       <Route exact path="/privacy-policy" component={PrivacyPolicy} />
       <Route exact path="/" component={Login} />
     </Switch>
