@@ -11,8 +11,8 @@ import Subscription from "./Order/Subscriptions"
 import PrivacyPolicy from "./Privacy"
 import SliderImage from './SliderImage'
 
-// axios.defaults.baseURL = "https://hris-backend-api.azurewebsites.net/"
-axios.defaults.baseURL = "http://localhost:3000/"
+axios.defaults.baseURL = "https://hris-backend-api.azurewebsites.net/"
+// axios.defaults.baseURL = "http://localhost:3000/"
 
 
 function Protected(props) {
