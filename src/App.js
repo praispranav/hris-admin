@@ -11,7 +11,9 @@ import Subscription from "./Order/Subscriptions"
 import PrivacyPolicy from "./Privacy"
 import SliderImage from './SliderImage'
 
-axios.defaults.baseURL = "https://hris-backend-api.azurewebsites.net/"
+// axios.defaults.baseURL = "https://hris-backend-api.azurewebsites.net/"
+
+axios.defaults.baseURL = "https://guarded-oasis-28338.herokuapp.com/"
 // axios.defaults.baseURL = "http://localhost:3000/"
 
 
